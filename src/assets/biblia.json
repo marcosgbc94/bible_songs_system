@@ -1,0 +1,3 @@
+[
+  {{ "libro": "Génesis", "capitulo": 1, "versiculos": [{{ "numero": 1, "texto": "En el principio creó Dios los cielos y la tierra." }}] }}
+]
