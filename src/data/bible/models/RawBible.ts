@@ -1,4 +1,4 @@
-import { Bible } from "./Bible";
+import { Bible } from './Bible';
 
 export interface RawBible {
   version: string;

@@ -1,18 +1,28 @@
-import { Header } from "./layouts/header";
-import { BibleService } from './bible';
-
-const bible = new BibleService();
-
-const allVerses = await bible.getBible();
-const genesis = await bible.getBook("Génesis");
-const cap3 = await bible.getChapter("Juan", 3);
-const j316 = await bible.getVerse("Juan", 3, 16);
-console.log(j316)
+import { Header } from "./presentation/layouts/header";
+import { useAppViewModel } from './presentation/viewmodels/AppViewModel';
 
 export default function App() {
+  const { 
+    projecting, 
+    setBibleProjection, 
+    setHymnalProjection,
+    active,
+    setHymnalActive,
+    setBibleActive
+  } = useAppViewModel();
+
   return (
     <div className="absolute w-full h-full bg-slate-200">
-      <Header />
+      <Header 
+        hymnalProjecting={projecting.hymnal} 
+        bibleProjecting={projecting.bible} 
+        hymnalActived={active.hymnal} 
+        bibleActived={active.bible} 
+        setBibleProjection={setBibleProjection}
+        setHymnalProjection={setHymnalProjection}
+        setHymnalActive={setHymnalActive}
+        setBibleActive={setBibleActive}
+      />
     </div>
   );
 }
